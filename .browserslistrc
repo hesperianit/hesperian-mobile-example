@@ -1,3 +1,6 @@
 # Browser Support
+# Andriod 4.4
+# iOS 9
+
 Android >= 4.4
-iOS >= 9
+ios_saf >= 9
