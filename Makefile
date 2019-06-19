@@ -3,36 +3,46 @@ WEBPACK=$(NODE_BIN)/webpack
 BABELNODE=$(NODE_BIN)/babel-node
 HTMLPDF=$(NODE_BIN)/html-pdf
 CORDOVA=$(NODE_BIN)/cordova
+HANDLEBARS=$(NODE_BIN)/hesperian-handlebars-cmd
+CORDOVA_CONFIG=$(BUILDDIR)/config.xml
 
-VERSION=1.0.1
 
 BUILDDIR=cordova
 
-.PHONY: build clean webpack watch
+.PHONY: build clean webpack watch cordova
 
-build: webpack
+build: webpack $(CORDOVA_CONFIG)
 	rm -rf ${BUILDDIR}/www
 	cp -R dist ${BUILDDIR}/www
-	cp $(BUILDDIR)/config.xml.template $(BUILDDIR)/config.xml
-	perl -pi -e 's/"VERSION"/"$(VERSION)"/g' $(BUILDDIR)/config.xml
 	@(cd ${BUILDDIR}; cordova build --device --release -- --password="${CORDOVA_SIGNING_PASSPHRASE}" --storePassword="${CORDOVA_SIGNING_PASSPHRASE}")
 	mkdir -p output
 	cp ${BUILDDIR}/platforms/ios/build/device/*.ipa output
 	cp ${BUILDDIR}/platforms/android/app/build/outputs/apk/*/*.apk output
 
+$(CORDOVA_CONFIG): $(BUILDDIR)/config.xml.template
+	cat $(BUILDDIR)/config.xml.template | ${HANDLEBARS} app-config.json > $(CORDOVA_CONFIG)
+
+
 clean:
 	rm -rf ${BUILDDIR}/platforms/ios/build/
 	(cd ${BUILDDIR}; cordova clean)
 
+distclean:
+	rm -rf ${BUILDDIR}/platforms/
+	rm -rf ${BUILDDIR}/node_modules package-lock.json
+	rm -rf ${BUILDDIR}/www ${BUILDDIR}/platforms ${BUILDDIR}/plugins
+
+
+cordova-install: $(CORDOVA_CONFIG) webpack
+	(cd ${BUILDDIR}; npm install)
+	rm -rf ${BUILDDIR}/www
+	cp -R dist ${BUILDDIR}/www
+	(cd ${BUILDDIR}; cordova prepare)
+
 
 webpack:
 	rm -rf dist
-	VERSION=$(VERSION) $(WEBPACK)
+	$(WEBPACK)
 watch:
-	VERSION=$(VERSION) $(WEBPACK) --watch
+	$(WEBPACK) --watch
 
-
-link:
-	rm -rf ./node_modules/mobile-app-library
-	mkdir ./node_modules/mobile-app-library
-	cp -R ../index.js ../lib ./node_modules/mobile-app-library

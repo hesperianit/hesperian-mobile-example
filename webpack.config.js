@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const preProcess = require('./webpack.preprocess');
+const appConfig = require('./app-config.json');
 
 module.exports = {
   mode: 'development',
@@ -12,7 +13,7 @@ module.exports = {
   entry: './js/app.js',
   plugins: [
     new webpack.DefinePlugin({
-      __VERSION__: JSON.stringify(process.env.VERSION),
+      __VERSION__: JSON.stringify(appConfig.version),
       __PREPROCESS__: JSON.stringify(preProcess.getPageInfo())
     }),
     new HtmlWebpackPlugin({
