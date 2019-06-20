@@ -19,7 +19,7 @@ build: webpack $(CORDOVA_CONFIG)
 	cp ${BUILDDIR}/platforms/ios/build/device/*.ipa output
 	cp ${BUILDDIR}/platforms/android/app/build/outputs/apk/*/*.apk output
 
-$(CORDOVA_CONFIG): $(BUILDDIR)/config.xml.template
+$(CORDOVA_CONFIG): $(BUILDDIR)/config.xml.template app-config.json
 	cat $(BUILDDIR)/config.xml.template | ${HANDLEBARS} app-config.json > $(CORDOVA_CONFIG)
 
 

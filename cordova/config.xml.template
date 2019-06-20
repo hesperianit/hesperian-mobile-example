@@ -1,5 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="{{{id}}}" version="{{{version}}}" xmlns="http://www.w3.org/ns/widgets"
+<widget id="{{{id}}}"
+        version="{{{version}}}"
+        {{#if android-packageName}}android-packageName="{{{android-packageName}}}"{{/if}}
+        {{#if ios-CFBundleIdentifier}}ios-CFBundleIdentifier="{{{ios-CFBundleIdentifier}}}"{{/if}}
+        xmlns="http://www.w3.org/ns/widgets"
     xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>{{name}}</name>
     <description>
