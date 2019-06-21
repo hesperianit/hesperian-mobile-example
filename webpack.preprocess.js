@@ -5,7 +5,7 @@
  */
 const fs = require('fs');
 const cheerio = require('cheerio');
-const util = require('hesperian-mobile/lib/util/util');
+const util = require('./node_modules/hesperian-mobile/lib/util/util');
 
 // One keyword will have stuff like "foo (bar)"
 function keywordStringToArray(keywordString) {

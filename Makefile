@@ -32,6 +32,9 @@ distclean:
 	rm -rf ${BUILDDIR}/node_modules package-lock.json
 	rm -rf ${BUILDDIR}/www ${BUILDDIR}/platforms ${BUILDDIR}/plugins
 
+install:
+	npm install
+	npm link hesperian-mobile
 
 cordova-install: $(CORDOVA_CONFIG) webpack
 	(cd ${BUILDDIR}; npm install)
