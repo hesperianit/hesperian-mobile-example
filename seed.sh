@@ -9,7 +9,10 @@ fi
 mkdir -p $1
 cp .babelrc \
     .browserslistrc \
-    .gitignore README.md \
+    .gitignore \
+    .jsbeautifyrc \
+    .htmlvalidate.json \
+    README.md \
     Makefile app-config.json \
     webpack.config.js \
     webpack.preprocess.js \
