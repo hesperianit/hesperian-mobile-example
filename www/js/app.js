@@ -1,8 +1,10 @@
 /*
- *  Family Planning
+ *  Hesperian Example Application
  *  Copyright Hesperian Health Guides 2017-2018
  *
  */
+
+import "core-js/stable";
 
 import '../css/styles.scss';
 

@@ -1,32 +1,5 @@
-/*
-   statusbar-overlay sets the background color for the overlay. Black text is the default when the statusbar plugin is not added. When the
-   statusbar plugin is added, it also adds default setting to make the content white via:
-
-       <preference name="StatusBarStyle" value="lightcontent"/>
-
-   Setting the background color to black will allow the default light content (white text/icons) to show on it. The statusbar plugin is included
-   in the config.xml file and will be added by the CLI when you build locally.
-
-   See https://github.com/apache/cordova-plugin-statusbar
-*/
-
-/*
-  Base font size is 14px;
-
-  14px -> 100%
-  17px -> 121%
-  25px -> 171%
-
-*/
-
 @import '../../node_modules/framework7/css/framework7.css';
 @import 'theme.scss';
-
-
-#app .content-list {
-  font-weight: bold;
-  color: $inline-link-text-color;
-}
 
 #app .links-list a {
   height: inherit;
@@ -34,10 +7,6 @@
 
 #app .list .item-title {
   white-space: normal;
-}
-
-.statusbar-overlay {
-  background: #000000;
 }
 
 .panel {
@@ -140,16 +109,5 @@ table {
 
   &>ul:before {
     @extend %float-block-item;
-  }
-}
-
-/* instruction lists */
-.instruction-list {
-  td:first-child {
-    width: 50%;
-
-    img {
-      width: 100%;
-    }
   }
 }
