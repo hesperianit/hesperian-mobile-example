@@ -45,7 +45,7 @@ cordova-install: $(CORDOVA_CONFIG) webpack
 
 webpack:
 	rm -rf dist
-	$(WEBPACK)
+	$(WEBPACK) --mode=production
 watch:
 	$(WEBPACK) --watch
 
