@@ -22,6 +22,21 @@ https://android-developers.googleblog.com/2019/03/introducing-new-google-play-ap
 
 #### ios
 
+Source Art:
+
+* AppIcon 1024x1024
+
+https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/launch-screen/
+16
+
+* LaunchImage-Portrait-3:2 640x960
+* LaunchImage-Portrait-16:9
+* LaunchImage-Landscape-9:16
+* LaunchImage-Portrait-4:3
+* LaunchImage-Landscape-3:4
+* LaunchImage-Portrait-19.5:9
+* LaunchImage-Landscape-9:19.5
+
 https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/app-icon/
 
 Note that `icon-1024.png` has no alpha chanel. This icon is used in the app store in certain places, but the app store takes it from the application build.
@@ -79,3 +94,9 @@ At least 3
 
 ??
 
+
+
+## Source Art
+
+https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-splashscreen/
+https://cordova.apache.org/docs/en/latest/config_ref/images.html
