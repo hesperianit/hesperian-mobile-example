@@ -12,12 +12,14 @@
     "core-js": "^3.1.4",
     "framework7": "^3.6.2",
     "framework7-icons": "^0.9.1",
+    "hesperian-mobile": "git://github.com/hesperianit/hesperian-mobile.git#master",
     "material-icons": "^0.2.3",
     "sortablejs": "^1.7.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
+    "@babel/core": "^7.7.0",
+    "@babel/node": "^7.7.0",
+    "@babel/preset-env": "^7.7.0",
     "babel-loader": "^8.0.6",
     "cheerio": "^1.0.0-rc.3",
     "copy-webpack-plugin": "^4.5.2",
